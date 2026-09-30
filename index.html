@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Escolar Acessível</title>
+    <style>
+        /* --- ESTILOS GERAIS E ACESSIBILIDADE --- */
+        :root {
+            --cor-fundo: #f4f7f6;
+            --cor-card: #ffffff;
+            --cor-texto: #1a202c;
+            --cor-primaria: #004d80; /* Azul escuro para alto contraste */
+            --cor-secundaria: #eef6fc;
+            --cor-borda: #cbd5e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif; /* Fonte limpa e sem serifa */
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6; /* Melhor espaçamento entre linhas */
+            padding: 20px;
+        }
+
+        /* Atalho de acessibilidade oculto (aparece ao usar o teclado 'Tab') */
+        .pular-conteudo {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--cor-primaria);
+            color: white;
+            padding: 10px;
+            z-index: 100;
+            text-decoration: none;
+        }
+        .pular-conteudo:focus {
+            top: 0;
+        }
+
+        /* --- ESTRUTURA PRINCIPAL --- */
+        header, main, footer {
+            max-width: 800px; /* Evita linhas de texto muito longas */
+            margin: 0 auto 20px auto;
+            background-color: var(--cor-card);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--cor-borda);
+        }
+
+        header {
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--cor-primaria);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+
+        /* --- MENU DE NAVEGAÇÃO --- */
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--cor-primaria);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 2px solid var(--cor-primaria);
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        nav a:hover, nav a:focus {
+            background-color: var(--cor-primaria);
+            color: white;
+            outline: 3px solid #ffb300; /* Destaque visual claro para navegação por teclado */
+        }
+
+        /* --- SEÇÕES E CARDS --- */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--cor-primaria);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--cor-borda);
+            padding-bottom: 5px;
+        }
+
+        .grid-informacoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--cor-secundaria);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 5px solid var(--cor-primaria);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* --- LISTAS E COMUNICAÇÃO --- */
+        ul.lista-dicas {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+
+        ul.lista-dicas li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* --- IMAGEM --- */
+        .container-imagem {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid var(--cor-borda);
+        }
+
+        /* --- BOTÕES --- */
+        .container-botoes {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .botao {
+            background-color: var(--cor-primaria);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .botao:hover, .botao:focus {
+            background-color: #003356;
+            outline: 3px solid #ffb300;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Link para leitores de tela e usuários de teclado pularem direto para o conteúdo principal -->
+    <a href="#conteudo-principal" class="pular-conteudo">Pular para o conteúdo principal</a>
+
+    <header>
+        <h1>Guia Escolar Acessível</h1>
+        <p class="subtitulo">Este espaço apresenta informações escolares de maneira simples, organizada e acessível.</p>
+        
+        <nav aria-label="Menu Principal">
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#informacoes">Informações</a></li>
+                <li><a href="#dicas">Dicas</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo-principal">
+        
+        <!-- Seção Início com Imagem -->
+        <section id="inicio">
+            <h2>Bem-vindo à nossa Escola</h2>
+            <div class="container-imagem">
+                <!-- Imagem ilustrativa de acessibilidade obtida via Unsplash (pode ser mantida ou alterada) -->
+                <img src="https://unsplash.com" 
+                     alt="Fotografia de uma sala de aula iluminada com carteiras organizadas e um quadro negro ao fundo.">
+            </div>
+        </section>
+
+        <!-- Seção Informações Importantes organizada em formato de Cards de leitura fácil -->
+        <section id="informacoes">
+            <h2>Informações Importantes</h2>
+            <div class="grid-informacoes">
+                <div class="card">
+                    <h3>Horário das aulas</h3>
+                    <p>07h00 às 12h00</p>
+                </div>
+                <div class="card">
+                    <h3>Intervalo</h3>
+                    <p>09h30 às 09h50</p>
+                </div>
+                <div class="card">
+                    <h3>Secretaria</h3>
+                    <p>Bloco Administrativo</p>
+                </div>
+                <div class="card">
+                    <h3>Atendimento</h3>
+                    <p>08h00 às 17h00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Dicas com tópicos objetivos -->
+        <section id="dicas">
+            <h2>Comunicação Acessível</h2>
+            <p style="margin-bottom: 15px;">Veja abaixo algumas formas de melhorar a comunicação no ambiente escolar:</p>
+            <ul class="lista-dicas">
+                <li>Utilizar linguagem clara.</li>
+                <li>Evitar textos muito longos.</li>
+                <li>Organizar as informações por tópicos.</li>
+                <li>Utilizar títulos para separar os assuntos.</li>
+                <li>Evitar excesso de informações na mesma tela.</li>
+            </ul>
+        </section>
+
+        <!-- Seção de Ações com Botões Grandes e Destacados -->
+        <section id="contato">
+            <h2>Ações Rápidas</h2>
+            <p>Escolha uma das opções abaixo para obter atendimento rápido:</p>
+            <div class="container-botoes">
+                <a href="#informacoes" class="botao">Ver Horários</a>
+                <a href="mailto:secretaria@escola.com" class="botao">Falar com a Secretaria</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Guia Escolar Acessível. Desenvolvido com foco na inclusão de todos os alunos.</p>
+    </footer>
+
+</body>
+</html>
